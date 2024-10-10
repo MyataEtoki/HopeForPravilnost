@@ -40,8 +40,21 @@
             label5 = new Label();
             numericUpDown2 = new NumericUpDown();
             button2 = new Button();
+            label6 = new Label();
+            label7 = new Label();
+            textBox3 = new TextBox();
+            label8 = new Label();
+            textBox4 = new TextBox();
+            label9 = new Label();
+            numericUpDown3 = new NumericUpDown();
+            label10 = new Label();
+            button3 = new Button();
+            checkBox1 = new CheckBox();
+            label11 = new Label();
+            textBox5 = new TextBox();
             ((System.ComponentModel.ISupportInitialize)numericUpDown1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDown2).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)numericUpDown3).BeginInit();
             SuspendLayout();
             // 
             // textBox1
@@ -108,7 +121,7 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(325, 445);
+            label4.Location = new Point(325, 292);
             label4.Name = "label4";
             label4.Size = new Size(225, 32);
             label4.TabIndex = 8;
@@ -116,7 +129,7 @@
             // 
             // textBox2
             // 
-            textBox2.Location = new Point(325, 480);
+            textBox2.Location = new Point(325, 327);
             textBox2.Name = "textBox2";
             textBox2.Size = new Size(356, 39);
             textBox2.TabIndex = 7;
@@ -124,7 +137,7 @@
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(35, 445);
+            label5.Location = new Point(35, 292);
             label5.Name = "label5";
             label5.Size = new Size(142, 32);
             label5.TabIndex = 10;
@@ -132,14 +145,14 @@
             // 
             // numericUpDown2
             // 
-            numericUpDown2.Location = new Point(35, 480);
+            numericUpDown2.Location = new Point(35, 327);
             numericUpDown2.Name = "numericUpDown2";
             numericUpDown2.Size = new Size(240, 39);
             numericUpDown2.TabIndex = 9;
             // 
             // button2
             // 
-            button2.Location = new Point(236, 553);
+            button2.Location = new Point(739, 306);
             button2.Name = "button2";
             button2.Size = new Size(132, 60);
             button2.TabIndex = 11;
@@ -147,11 +160,125 @@
             button2.UseVisualStyleBackColor = true;
             button2.Click += button2_Click;
             // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Location = new Point(35, 251);
+            label6.Name = "label6";
+            label6.Size = new Size(125, 32);
+            label6.TabIndex = 12;
+            label6.Text = "Создание:";
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Location = new Point(35, 399);
+            label7.Name = "label7";
+            label7.Size = new Size(568, 32);
+            label7.TabIndex = 13;
+            label7.Text = "Создание правителя для найденного государства:";
+            // 
+            // textBox3
+            // 
+            textBox3.Location = new Point(35, 472);
+            textBox3.Name = "textBox3";
+            textBox3.Size = new Size(142, 39);
+            textBox3.TabIndex = 14;
+            // 
+            // label8
+            // 
+            label8.AutoSize = true;
+            label8.Location = new Point(35, 437);
+            label8.Name = "label8";
+            label8.Size = new Size(61, 32);
+            label8.TabIndex = 15;
+            label8.Text = "Имя";
+            // 
+            // textBox4
+            // 
+            textBox4.Location = new Point(197, 472);
+            textBox4.Name = "textBox4";
+            textBox4.Size = new Size(209, 39);
+            textBox4.TabIndex = 16;
+            // 
+            // label9
+            // 
+            label9.AutoSize = true;
+            label9.Location = new Point(197, 437);
+            label9.Name = "label9";
+            label9.Size = new Size(113, 32);
+            label9.TabIndex = 17;
+            label9.Text = "Фамилия";
+            // 
+            // numericUpDown3
+            // 
+            numericUpDown3.Location = new Point(441, 472);
+            numericUpDown3.Name = "numericUpDown3";
+            numericUpDown3.Size = new Size(109, 39);
+            numericUpDown3.TabIndex = 18;
+            // 
+            // label10
+            // 
+            label10.AutoSize = true;
+            label10.Location = new Point(441, 437);
+            label10.Name = "label10";
+            label10.Size = new Size(100, 32);
+            label10.TabIndex = 19;
+            label10.Text = "Возраст";
+            // 
+            // button3
+            // 
+            button3.Location = new Point(585, 451);
+            button3.Name = "button3";
+            button3.Size = new Size(132, 60);
+            button3.TabIndex = 20;
+            button3.Text = "Создать";
+            button3.UseVisualStyleBackColor = true;
+            // 
+            // checkBox1
+            // 
+            checkBox1.AutoSize = true;
+            checkBox1.Location = new Point(620, 399);
+            checkBox1.Name = "checkBox1";
+            checkBox1.Size = new Size(144, 36);
+            checkBox1.TabIndex = 21;
+            checkBox1.Text = "Создать?";
+            checkBox1.UseVisualStyleBackColor = true;
+            // 
+            // label11
+            // 
+            label11.AutoSize = true;
+            label11.Location = new Point(35, 527);
+            label11.Name = "label11";
+            label11.Size = new Size(282, 32);
+            label11.TabIndex = 23;
+            label11.Text = "Отчество (при наличии)";
+            // 
+            // textBox5
+            // 
+            textBox5.Location = new Point(35, 562);
+            textBox5.Name = "textBox5";
+            textBox5.Size = new Size(209, 39);
+            textBox5.TabIndex = 22;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(13F, 32F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.White;
             ClientSize = new Size(1552, 653);
+            Controls.Add(label11);
+            Controls.Add(textBox5);
+            Controls.Add(checkBox1);
+            Controls.Add(button3);
+            Controls.Add(label10);
+            Controls.Add(numericUpDown3);
+            Controls.Add(label9);
+            Controls.Add(textBox4);
+            Controls.Add(label8);
+            Controls.Add(textBox3);
+            Controls.Add(label7);
+            Controls.Add(label6);
             Controls.Add(button2);
             Controls.Add(label5);
             Controls.Add(numericUpDown2);
@@ -168,6 +295,7 @@
             Text = "Form1";
             ((System.ComponentModel.ISupportInitialize)numericUpDown1).EndInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDown2).EndInit();
+            ((System.ComponentModel.ISupportInitialize)numericUpDown3).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -186,5 +314,17 @@
         private Label label5;
         private NumericUpDown numericUpDown2;
         private Button button2;
+        private Label label6;
+        private Label label7;
+        private TextBox textBox3;
+        private Label label8;
+        private TextBox textBox4;
+        private Label label9;
+        private NumericUpDown numericUpDown3;
+        private Label label10;
+        private Button button3;
+        private CheckBox checkBox1;
+        private Label label11;
+        private TextBox textBox5;
     }
 }

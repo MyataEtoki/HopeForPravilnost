@@ -11,7 +11,7 @@ namespace HopeForPravilnost
         {
             InitializeComponent();
             // Инициализация нескольких объектов государства для демонстрации
-            государства.Add(new Государство("Франция", 111) { ID = 0});
+            государства.Add(new Государство("Франция", 111) { ID = 0 });
             государства.Add(new Государство("Испания") { ID = 1, ГодСоздания = 1211 });
             государства.Add(new Государство("Лапландия") { ID = 2 });
             государства.Add(new Государство("Россия") { ID = 3, ГодСоздания = 2222 });
@@ -32,8 +32,9 @@ namespace HopeForPravilnost
             {
                 //richTextBox1.Text = найденноеГосударство.ToString();
                 richTextBox1.Text = $"Название: {найденноеГосударство.Название}, ID: {id}";
-                if (найденноеГосударство.ГодСоздания != 0 ) { 
-                    richTextBox1.Text += $", Год создания: {найденноеГосударство.ГодСоздания}"; 
+                if (найденноеГосударство.ГодСоздания != 0)
+                {
+                    richTextBox1.Text += $", Год создания: {найденноеГосударство.ГодСоздания}";
                 }
                 richTextBox1.Text += найденноеГосударство.ПоказатьИнформациюОПравителе();
 
@@ -42,11 +43,6 @@ namespace HopeForPravilnost
             else
             {
                 richTextBox1.Text = $"Государство с ID {id} не найдено.";
-            }
-
-            if (checkBox1.Checked == true && найденноеГосударство != null)
-            {
-                найденноеГосударство.УстановитьПравителя(textBox3.Text, textBox4.Text, textBox5.Text, (int)numericUpDown3.Value) ;
             }
 
         }
@@ -76,5 +72,14 @@ namespace HopeForPravilnost
             numericUpDown1.Value = 0; // Сброс ID или установите его на значение по умолчанию
         }
 
+        private void button3_Click(object sender, EventArgs e) //кнопка создать правителя
+        {
+            int id = (int)numericUpDown1.Value;
+            Государство найденноеГосударство = государства.Find(g => g.ID == id);
+            if (найденноеГосударство != null)
+            {
+                найденноеГосударство.УстановитьПравителя(textBox3.Text, textBox4.Text, textBox5.Text, (int)numericUpDown3.Value);
+            }
+        }
     }
 }

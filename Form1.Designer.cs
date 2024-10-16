@@ -48,10 +48,9 @@
             label9 = new Label();
             numericUpDown3 = new NumericUpDown();
             label10 = new Label();
-            button3 = new Button();
-            checkBox1 = new CheckBox();
             label11 = new Label();
             textBox5 = new TextBox();
+            button3 = new Button();
             ((System.ComponentModel.ISupportInitialize)numericUpDown1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDown2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDown3).BeginInit();
@@ -226,25 +225,6 @@
             label10.TabIndex = 19;
             label10.Text = "Возраст";
             // 
-            // button3
-            // 
-            button3.Location = new Point(585, 451);
-            button3.Name = "button3";
-            button3.Size = new Size(132, 60);
-            button3.TabIndex = 20;
-            button3.Text = "Создать";
-            button3.UseVisualStyleBackColor = true;
-            // 
-            // checkBox1
-            // 
-            checkBox1.AutoSize = true;
-            checkBox1.Location = new Point(620, 399);
-            checkBox1.Name = "checkBox1";
-            checkBox1.Size = new Size(144, 36);
-            checkBox1.TabIndex = 21;
-            checkBox1.Text = "Создать?";
-            checkBox1.UseVisualStyleBackColor = true;
-            // 
             // label11
             // 
             label11.AutoSize = true;
@@ -261,6 +241,16 @@
             textBox5.Size = new Size(209, 39);
             textBox5.TabIndex = 22;
             // 
+            // button3
+            // 
+            button3.Location = new Point(585, 451);
+            button3.Name = "button3";
+            button3.Size = new Size(242, 60);
+            button3.TabIndex = 20;
+            button3.Text = "Создать правителя";
+            button3.UseVisualStyleBackColor = true;
+            button3.Click += button3_Click;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(13F, 32F);
@@ -269,7 +259,6 @@
             ClientSize = new Size(1552, 653);
             Controls.Add(label11);
             Controls.Add(textBox5);
-            Controls.Add(checkBox1);
             Controls.Add(button3);
             Controls.Add(label10);
             Controls.Add(numericUpDown3);
@@ -322,9 +311,8 @@
         private Label label9;
         private NumericUpDown numericUpDown3;
         private Label label10;
-        private Button button3;
-        private CheckBox checkBox1;
         private Label label11;
         private TextBox textBox5;
+        private Button button3;
     }
 }

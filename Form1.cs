@@ -74,7 +74,7 @@ namespace HopeForPravilnost
             numericUpDown1.Value = 0; // Сброс ID или установите его на значение по умолчанию
         }
 
-        private void button3_Click(object sender, EventArgs e) // кнопка создать правителя
+        private void button3_Click(object sender, EventArgs e) // кнопка - создать правителя
         {
             int id = (int)numericUpDown1.Value;
             Государство найденноеГосударство = государства.Find(g => g.ID == id);

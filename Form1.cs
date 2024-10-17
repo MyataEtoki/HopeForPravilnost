@@ -1,3 +1,4 @@
+using Microsoft.VisualBasic;
 using StavteClassy;
 using System.Windows.Forms;
 namespace HopeForPravilnost
@@ -18,7 +19,7 @@ namespace HopeForPravilnost
             this.BackColor = Субъект.BackColor;
 
         }
-        private void button1_Click(object sender, EventArgs e) // Поиск государств по ID
+        private void button1_Click(object sender, EventArgs e) // кнопка - Поиск государства по ID
         {
             richTextBox1.Clear();
 
@@ -47,7 +48,7 @@ namespace HopeForPravilnost
 
         }
 
-        private void button2_Click(object sender, EventArgs e) // Создание государств
+        private void button2_Click(object sender, EventArgs e) // кнопка - Создание государств
         {
             // Получаем значение ID и название страны
             int id = (int)numericUpDown2.Value;
@@ -60,8 +61,9 @@ namespace HopeForPravilnost
                 return;
             }
 
+            int _годСоздания = (int)numericUpDown4.Value;
             // Создание нового государства в списке
-            Государство новоеГосударство = new Государство(название) { ID = id };
+            Государство новоеГосударство = new Государство(название) { ID = id, ГодСоздания = _годСоздания };
             государства.Add(новоеГосударство);
 
             // Выводим сообщение об успешном создании
@@ -72,13 +74,13 @@ namespace HopeForPravilnost
             numericUpDown1.Value = 0; // Сброс ID или установите его на значение по умолчанию
         }
 
-        private void button3_Click(object sender, EventArgs e) //кнопка создать правителя
+        private void button3_Click(object sender, EventArgs e) // кнопка создать правителя
         {
             int id = (int)numericUpDown1.Value;
             Государство найденноеГосударство = государства.Find(g => g.ID == id);
             if (найденноеГосударство != null)
             {
-                найденноеГосударство.УстановитьПравителя(textBox3.Text, textBox4.Text, textBox5.Text, (int)numericUpDown3.Value);
+                найденноеГосударство.УстановитьПравителя(textBox3.Text, textBox4.Text, textBox5.Text, (int)numericUpDown3.Value, DateTime.Now);
             }
         }
     }

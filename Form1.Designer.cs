@@ -51,9 +51,12 @@
             label11 = new Label();
             textBox5 = new TextBox();
             button3 = new Button();
+            label12 = new Label();
+            numericUpDown4 = new NumericUpDown();
             ((System.ComponentModel.ISupportInitialize)numericUpDown1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDown2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDown3).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)numericUpDown4).BeginInit();
             SuspendLayout();
             // 
             // textBox1
@@ -67,15 +70,15 @@
             // 
             // richTextBox1
             // 
-            richTextBox1.Location = new Point(912, 89);
+            richTextBox1.Location = new Point(1117, 89);
             richTextBox1.Name = "richTextBox1";
-            richTextBox1.Size = new Size(594, 501);
+            richTextBox1.Size = new Size(389, 501);
             richTextBox1.TabIndex = 1;
             richTextBox1.Text = "";
             // 
             // button1
             // 
-            button1.Location = new Point(325, 164);
+            button1.Location = new Point(223, 164);
             button1.Name = "button1";
             button1.Size = new Size(132, 60);
             button1.TabIndex = 2;
@@ -87,7 +90,7 @@
             // 
             numericUpDown1.Location = new Point(35, 185);
             numericUpDown1.Name = "numericUpDown1";
-            numericUpDown1.Size = new Size(240, 39);
+            numericUpDown1.Size = new Size(142, 39);
             numericUpDown1.TabIndex = 3;
             // 
             // label1
@@ -102,7 +105,7 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(912, 54);
+            label2.Location = new Point(1117, 54);
             label2.Name = "label2";
             label2.Size = new Size(286, 32);
             label2.TabIndex = 5;
@@ -120,7 +123,7 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(325, 292);
+            label4.Location = new Point(197, 292);
             label4.Name = "label4";
             label4.Size = new Size(225, 32);
             label4.TabIndex = 8;
@@ -128,9 +131,9 @@
             // 
             // textBox2
             // 
-            textBox2.Location = new Point(325, 327);
+            textBox2.Location = new Point(197, 327);
             textBox2.Name = "textBox2";
-            textBox2.Size = new Size(356, 39);
+            textBox2.Size = new Size(225, 39);
             textBox2.TabIndex = 7;
             // 
             // label5
@@ -146,12 +149,12 @@
             // 
             numericUpDown2.Location = new Point(35, 327);
             numericUpDown2.Name = "numericUpDown2";
-            numericUpDown2.Size = new Size(240, 39);
+            numericUpDown2.Size = new Size(142, 39);
             numericUpDown2.TabIndex = 9;
             // 
             // button2
             // 
-            button2.Location = new Point(739, 306);
+            button2.Location = new Point(720, 306);
             button2.Name = "button2";
             button2.Size = new Size(132, 60);
             button2.TabIndex = 11;
@@ -251,12 +254,30 @@
             button3.UseVisualStyleBackColor = true;
             button3.Click += button3_Click;
             // 
+            // label12
+            // 
+            label12.AutoSize = true;
+            label12.Location = new Point(461, 292);
+            label12.Name = "label12";
+            label12.Size = new Size(221, 32);
+            label12.TabIndex = 25;
+            label12.Text = "Год создания(не 0)";
+            // 
+            // numericUpDown4
+            // 
+            numericUpDown4.Location = new Point(461, 327);
+            numericUpDown4.Name = "numericUpDown4";
+            numericUpDown4.Size = new Size(221, 39);
+            numericUpDown4.TabIndex = 24;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(13F, 32F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
             ClientSize = new Size(1552, 653);
+            Controls.Add(label12);
+            Controls.Add(numericUpDown4);
             Controls.Add(label11);
             Controls.Add(textBox5);
             Controls.Add(button3);
@@ -285,6 +306,7 @@
             ((System.ComponentModel.ISupportInitialize)numericUpDown1).EndInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDown2).EndInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDown3).EndInit();
+            ((System.ComponentModel.ISupportInitialize)numericUpDown4).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -314,5 +336,7 @@
         private Label label11;
         private TextBox textBox5;
         private Button button3;
+        private Label label12;
+        private NumericUpDown numericUpDown4;
     }
 }

@@ -53,10 +53,21 @@
             button3 = new Button();
             label12 = new Label();
             numericUpDown4 = new NumericUpDown();
+            listBox1 = new ListBox();
+            label13 = new Label();
+            button4 = new Button();
+            button5 = new Button();
+            button6 = new Button();
+            pictureBox1 = new PictureBox();
+            button7 = new Button();
+            textBox6 = new TextBox();
+            label14 = new Label();
+            button8 = new Button();
             ((System.ComponentModel.ISupportInitialize)numericUpDown1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDown2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDown3).BeginInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDown4).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // textBox1
@@ -70,17 +81,17 @@
             // 
             // richTextBox1
             // 
-            richTextBox1.Location = new Point(1117, 89);
+            richTextBox1.Location = new Point(944, 85);
             richTextBox1.Name = "richTextBox1";
-            richTextBox1.Size = new Size(389, 501);
+            richTextBox1.Size = new Size(389, 152);
             richTextBox1.TabIndex = 1;
             richTextBox1.Text = "";
             // 
             // button1
             // 
-            button1.Location = new Point(223, 164);
+            button1.Location = new Point(223, 185);
             button1.Name = "button1";
-            button1.Size = new Size(132, 60);
+            button1.Size = new Size(132, 39);
             button1.TabIndex = 2;
             button1.Text = "Найти";
             button1.UseVisualStyleBackColor = true;
@@ -105,7 +116,7 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(1117, 54);
+            label2.Location = new Point(944, 50);
             label2.Name = "label2";
             label2.Size = new Size(286, 32);
             label2.TabIndex = 5;
@@ -154,9 +165,9 @@
             // 
             // button2
             // 
-            button2.Location = new Point(720, 306);
+            button2.Location = new Point(720, 327);
             button2.Name = "button2";
-            button2.Size = new Size(132, 60);
+            button2.Size = new Size(132, 39);
             button2.TabIndex = 11;
             button2.Text = "Создать";
             button2.UseVisualStyleBackColor = true;
@@ -246,9 +257,9 @@
             // 
             // button3
             // 
-            button3.Location = new Point(585, 451);
+            button3.Location = new Point(585, 472);
             button3.Name = "button3";
-            button3.Size = new Size(242, 60);
+            button3.Size = new Size(242, 39);
             button3.TabIndex = 20;
             button3.Text = "Создать правителя";
             button3.UseVisualStyleBackColor = true;
@@ -270,12 +281,113 @@
             numericUpDown4.Size = new Size(221, 39);
             numericUpDown4.TabIndex = 24;
             // 
+            // listBox1
+            // 
+            listBox1.FormattingEnabled = true;
+            listBox1.Location = new Point(944, 299);
+            listBox1.Name = "listBox1";
+            listBox1.Size = new Size(389, 260);
+            listBox1.TabIndex = 26;
+            listBox1.SelectedIndexChanged += listBox1_SelectedIndexChanged;
+            // 
+            // label13
+            // 
+            label13.AutoSize = true;
+            label13.Location = new Point(944, 264);
+            label13.Name = "label13";
+            label13.Size = new Size(121, 32);
+            label13.TabIndex = 27;
+            label13.Text = "Cубъекты";
+            // 
+            // button4
+            // 
+            button4.Location = new Point(1357, 299);
+            button4.Name = "button4";
+            button4.Size = new Size(150, 115);
+            button4.TabIndex = 28;
+            button4.Text = "Загрузить данные";
+            button4.UseVisualStyleBackColor = true;
+            button4.Click += button4_Click;
+            // 
+            // button5
+            // 
+            button5.Location = new Point(1357, 444);
+            button5.Name = "button5";
+            button5.Size = new Size(150, 115);
+            button5.TabIndex = 29;
+            button5.Text = "Сохранить данные";
+            button5.UseVisualStyleBackColor = true;
+            button5.Click += button5_Click;
+            // 
+            // button6
+            // 
+            button6.Location = new Point(995, 565);
+            button6.Name = "button6";
+            button6.Size = new Size(284, 59);
+            button6.TabIndex = 30;
+            button6.Text = "Я любитель строчек";
+            button6.UseVisualStyleBackColor = true;
+            button6.Click += button6_Click;
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.Location = new Point(1529, 85);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(421, 520);
+            pictureBox1.TabIndex = 31;
+            pictureBox1.TabStop = false;
+            // 
+            // button7
+            // 
+            button7.Location = new Point(1348, 141);
+            button7.Name = "button7";
+            button7.Size = new Size(168, 46);
+            button7.TabIndex = 32;
+            button7.Text = "Картинка >>";
+            button7.UseVisualStyleBackColor = true;
+            button7.Click += button7_Click;
+            // 
+            // textBox6
+            // 
+            textBox6.Location = new Point(627, 163);
+            textBox6.Name = "textBox6";
+            textBox6.Size = new Size(288, 39);
+            textBox6.TabIndex = 33;
+            // 
+            // label14
+            // 
+            label14.AutoSize = true;
+            label14.Location = new Point(403, 140);
+            label14.Name = "label14";
+            label14.Size = new Size(0, 32);
+            label14.TabIndex = 34;
+            // 
+            // button8
+            // 
+            button8.Location = new Point(627, 111);
+            button8.Name = "button8";
+            button8.Size = new Size(288, 46);
+            button8.TabIndex = 35;
+            button8.Text = "Изменить название на:";
+            button8.UseVisualStyleBackColor = true;
+            button8.Click += button8_Click;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(13F, 32F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
-            ClientSize = new Size(1552, 653);
+            ClientSize = new Size(1984, 653);
+            Controls.Add(button8);
+            Controls.Add(label14);
+            Controls.Add(textBox6);
+            Controls.Add(button7);
+            Controls.Add(pictureBox1);
+            Controls.Add(button6);
+            Controls.Add(button5);
+            Controls.Add(button4);
+            Controls.Add(label13);
+            Controls.Add(listBox1);
             Controls.Add(label12);
             Controls.Add(numericUpDown4);
             Controls.Add(label11);
@@ -302,11 +414,12 @@
             Controls.Add(richTextBox1);
             Controls.Add(textBox1);
             Name = "Form1";
-            Text = "Form1";
+            Text = "Обозреватель Государств";
             ((System.ComponentModel.ISupportInitialize)numericUpDown1).EndInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDown2).EndInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDown3).EndInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDown4).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -338,5 +451,15 @@
         private Button button3;
         private Label label12;
         private NumericUpDown numericUpDown4;
+        private ListBox listBox1;
+        private Label label13;
+        private Button button4;
+        private Button button5;
+        private Button button6;
+        private PictureBox pictureBox1;
+        private Button button7;
+        private TextBox textBox6;
+        private Label label14;
+        private Button button8;
     }
 }

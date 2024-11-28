@@ -60,8 +60,8 @@ namespace HopeForPravilnost
                             var parts = line.Split(',');
 
                             // Создаем новый объект Государства
-                            var государство = new Государство(parts[1].Trim());
-                            государство.ID = int.Parse(parts[0].Trim());
+                            var государство = new Государство(int.Parse(parts[0].Trim()), parts[1].Trim());
+                            //государство.ID = int.Parse(parts[0].Trim());
                             if (parts.Length > 2)
                                 государство.ГодСоздания = int.Parse(parts[2].Trim());
 

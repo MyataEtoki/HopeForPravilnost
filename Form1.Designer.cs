@@ -74,7 +74,6 @@
             // 
             textBox1.Location = new Point(35, 73);
             textBox1.Name = "textBox1";
-            textBox1.ReadOnly = true;
             textBox1.Size = new Size(356, 39);
             textBox1.TabIndex = 0;
             textBox1.Text = "Государство";
@@ -83,6 +82,7 @@
             // 
             richTextBox1.Location = new Point(944, 85);
             richTextBox1.Name = "richTextBox1";
+            richTextBox1.ReadOnly = true;
             richTextBox1.Size = new Size(389, 152);
             richTextBox1.TabIndex = 1;
             richTextBox1.Text = "";
@@ -295,9 +295,9 @@
             label13.AutoSize = true;
             label13.Location = new Point(944, 264);
             label13.Name = "label13";
-            label13.Size = new Size(121, 32);
+            label13.Size = new Size(345, 32);
             label13.TabIndex = 27;
-            label13.Text = "Cубъекты";
+            label13.Text = "Государства(позже Cубъекты)";
             // 
             // button4
             // 

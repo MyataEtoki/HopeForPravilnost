@@ -1,28 +1,38 @@
-using Microsoft.VisualBasic;
 using StavteClassy;
-using System.Windows.Forms;
-using static System.Windows.Forms.DataFormats;
+using System.Threading.Tasks.Sources;
 namespace HopeForPravilnost
 {
     public partial class Form1 : Form
     {
         private List<Государство> государства = new List<Государство>();
-        private List<Область> области = new List<Область> ();
-        private List<Город> города = new List<Город> ();
+        private List<Область> области = new List<Область>();
+        private List<Город> города = new List<Город>();
         private List<Район> районы = new List<Район>();
 
         public Form1()
         {
             InitializeComponent();
+            comboBox1.Items.Add("Государство");
+            comboBox1.Items.Add("Область");
+            comboBox1.Items.Add("Город");
+            comboBox1.Items.Add("Район");
             // Инициализация нескольких объектов государства для демонстрации
             var франция = new Государство(0, "Франция", 111);
-            var испания = new Государство(1, "Испания") {ГодСоздания = 1211 };
+            var испания = new Государство(1, "Испания") { ГодСоздания = 1211 };
             var лапландия = new Государство(2, "Лапландия");
-            var россия = new Государство(3, "Россия") {ГодСоздания = 2222 };
-            var мухоженуи = new Город(0, "Мухосранск");
+            var россия = new Государство(3, "Россия") { ГодСоздания = 2222 };
+            var мухоженуи = new Город(0, "Мухоженуи");
+            var мухосранск = new Город(1, "Мухосранск");
             var шампань = new Область(0, "Шампань");
+            var ростовская = new Область(1, "Ростовская");
+            var тринадцатый = new Район(0, "Тринадцатый");
+            //var московский = new Район(1, "Московский");
+            //районы.Add(московский);
+            районы.Add(тринадцатый);
             города.Add(мухоженуи);
+            города.Add(мухосранск);
             области.Add(шампань);
+            области.Add(ростовская);
             государства.Add(франция);
             государства.Add(испания);
             государства.Add(лапландия);
@@ -49,9 +59,25 @@ namespace HopeForPravilnost
             listBox1.DataSource = null;
             listBox1.DataSource = государства;
             listBox1.DisplayMember = "Название"; // Отображаем только название
+            listBox2.DataSource = null;
+            listBox2.DataSource = области;
+            listBox2.DisplayMember = "Название";
+            listBox3.DataSource = null;
+            listBox3.DataSource = города;
+            listBox3.DisplayMember = "Название";
+            listBox4.DataSource = null;
+            listBox4.DataSource = районы;
+            listBox4.DisplayMember = "Название";
+
         }
         private bool ЗагрузитьДанные(string filePath, out int количествоЗаписей)
         {
+            // Очищаем коллекции перед загрузкой новых данных
+            государства.Clear();
+            области.Clear();
+            города.Clear();
+            районы.Clear();
+
             количествоЗаписей = 0;
             if (File.Exists(filePath))
             {
@@ -61,29 +87,78 @@ namespace HopeForPravilnost
                     количествоЗаписей++;
                     var parts = line.Split(',');
 
-                    var государство = new Государство(int.Parse(parts[0].Trim()), parts[1].Trim());
-                    //государство.ID = int.Parse(parts[0].Trim());
-                    if (parts.Length > 2)
-                        государство.ГодСоздания = int.Parse(parts[2].Trim());
-
-                    if (parts.Length > 3) // если есть данные о правителе
+                    if (parts.Length >= 2)
                     {
-                        var правитель = new Правитель
+                        // Загрузка государственных данных
+                        if (parts[0].Trim() == "Государство")
                         {
-                            Имя = parts[3].Trim(),
-                            Фамилия = parts[4].Trim(),
-                            Отчество = parts[5].Trim(),
-                            Возраст = int.Parse(parts[6].Trim()),
-                            НачалоПравления = DateTime.Parse(parts[7].Trim()),
-                            Существует = true
-                        };
-                        // для разнообразия глупость - передаём классу сразу структуру, а не через метод аргументы.
-                        государство.ТекущийПравитель = правитель;
-                        государство.КтоТоПравит = true;
+                            int id = int.Parse(parts[1].Trim());
+                            string название = parts[2].Trim();
+
+                            // Проверяем наличие дубликата по ID или имени
+                            if (!государства.Exists(g => g.ID == id || g.Название.Equals(название, StringComparison.OrdinalIgnoreCase)))
+                            {
+                                var государство = new Государство(id, название)
+                                {
+                                    ГодСоздания = parts.Length > 3 ? int.Parse(parts[3].Trim()) : 0
+                                };
+
+                                // Загрузка информации о правителе, если доступна
+                                if (parts.Length > 8) // если есть данные о правителе
+                                {
+                                    var правитель = new Правитель
+                                    {
+                                        Имя = parts[4].Trim(),
+                                        Фамилия = parts[5].Trim(),
+                                        Отчество = parts[6].Trim(),
+                                        Возраст = int.Parse(parts[7].Trim()),
+                                        НачалоПравления = DateTime.Parse(parts[8].Trim()),
+                                        Существует = true
+                                    };
+                                    государство.ТекущийПравитель = правитель;
+                                    государство.КтоТоПравит = true;
+                                }
+
+                                государства.Add(государство); // Добавляем только если нет дубликатов
+                            }
+                        }
+                        else if (parts[0].Trim() == "Область")
+                        {
+                            int id = int.Parse(parts[1].Trim());
+                            string название = parts[2].Trim();
+
+                            // Проверяем наличие дубликата
+                            if (!области.Exists(o => o.ID == id || o.Название.Equals(название, StringComparison.OrdinalIgnoreCase)))
+                            {
+                                var область = new Область(id, название);
+                                области.Add(область);
+                            }
+                        }
+                        else if (parts[0].Trim() == "Город")
+                        {
+                            int id = int.Parse(parts[1].Trim());
+                            string название = parts[2].Trim();
+
+                            // Проверяем наличие дубликата
+                            if (!города.Exists(c => c.ID == id || c.Название.Equals(название, StringComparison.OrdinalIgnoreCase)))
+                            {
+                                var город = new Город(id, название);
+                                города.Add(город);
+                            }
+                        }
+                        else if (parts[0].Trim() == "Район")
+                        {
+                            int id = int.Parse(parts[1].Trim());
+                            string название = parts[2].Trim();
+
+                            // Проверяем наличие дубликата
+                            if (!районы.Exists(d => d.ID == id || d.Название.Equals(название, StringComparison.OrdinalIgnoreCase)))
+                            {
+                                var район = new Район(id, название);
+                                районы.Add(район);
+                            }
+                        }
                     }
-
-                    государства.Add(государство);
-
                 }
 
                 return true;
@@ -98,15 +173,15 @@ namespace HopeForPravilnost
         {
             государство.Название = новоеНазвание;
         }
-        private void button1_Click(object sender, EventArgs e) // кнопка - Поиск государства по ID
+        private void button1_Click(object sender, EventArgs e) // кнопка - Поиск по ID
         {
             richTextBox1.Clear();
             // Получаем ID из numericUpDown
             int id = (int)numericUpDown1.Value;
 
-            if (textBox1.Text == "Государство")
+            if (comboBox1.Text == "Государство")
             {
-                
+
                 // Поиск государства по ID
                 Государство найденноеГосударство = государства.Find(g => g.ID == id);
 
@@ -133,7 +208,7 @@ namespace HopeForPravilnost
                     richTextBox1.Text = $"Государство с ID {id} не найдено.";
                 }
             }
-            else if (textBox1.Text == "Область")
+            else if (comboBox1.Text == "Область")
             {
 
                 // Поиск области по ID
@@ -144,10 +219,10 @@ namespace HopeForPravilnost
                     richTextBox1.Text = $"Область: {найденнаяОбласть.Название}, ID: {id}";
                 }
             }
-            else if (textBox1.Text == "Город")
+            else if (comboBox1.Text == "Город")
             {
                 Город найденныйГород = города.Find(g => g.ID == id);
-                if (найденныйГород!= null)
+                if (найденныйГород != null)
                 {
                     richTextBox1.Text = $"Город: {найденныйГород.Название}, ID: {id}";
                 }
@@ -160,7 +235,7 @@ namespace HopeForPravilnost
             int id = (int)numericUpDown2.Value; // явное преобразование
             string название = textBox2.Text;
 
-            if (textBox1.Text == "Государство")
+            if (comboBox1.Text == "Государство")
             {
                 // Проверка, существует ли уже государство с таким ID
                 if (государства.Exists(g => g.ID == id))
@@ -171,7 +246,7 @@ namespace HopeForPravilnost
 
                 int _годСоздания = (int)numericUpDown4.Value;
                 // Создание нового государства в списке
-                Государство новоеГосударство = new Государство(id, название) {ГодСоздания = _годСоздания };
+                Государство новоеГосударство = new Государство(id, название) { ГодСоздания = _годСоздания };
                 государства.Add(новоеГосударство);
 
                 // Выводим сообщение об успешном создании
@@ -182,7 +257,7 @@ namespace HopeForPravilnost
                 textBox2.Clear();
                 numericUpDown1.Value = 0; // Сброс ID или установите его на значение по умолчанию
             }
-            else if (textBox1.Text == "Область")
+            else if (comboBox1.Text == "Область")
             {
 
                 // Проверка, существует ли уже субъект с таким ID
@@ -198,13 +273,13 @@ namespace HopeForPravilnost
 
                 // Выводим сообщение об успешном создании
                 MessageBox.Show($"Область '{название}' с ID {id} успешно создано!", "Успех", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                
 
+                SetupListBox();
                 // Очистка полей для ввода
                 textBox2.Clear();
                 numericUpDown1.Value = 0; // Сброс ID или установите его на значение по умолчанию
             }
-            else if (textBox1.Text == "Город")
+            else if (comboBox1.Text == "Город")
             {
                 // Проверка, существует ли уже государство с таким ID
                 if (города.Exists(g => g.ID == id))
@@ -221,7 +296,7 @@ namespace HopeForPravilnost
                 MessageBox.Show($"На основе данных => {новыйГород.ToString()}"); // так как new - скрытие - то метод вызывается из класса Город
                 города.Add(новыйГород);
                 MessageBox.Show($"Город '{название}' с ID {id} успешно создано!", "Успех", MessageBoxButtons.OK, MessageBoxIcon.Information);
-               
+                SetupListBox();
                 // Очистка полей для ввода
                 textBox2.Clear();
                 numericUpDown1.Value = 0; // Сброс ID или установите его на значение по умолчанию
@@ -284,17 +359,34 @@ namespace HopeForPravilnost
                     {
                         foreach (var государство in государства)
                         {
-                            if (государство.ТекущийПравитель.Существует)
+                            if (государство.ТекущийПравитель.Существует && государство.КтоТоПравит)
                             {
-                                writer.WriteLine($"{государство.ID},{государство.Название},{государство.ГодСоздания}," +
-                                    $"{государство.ТекущийПравитель.Имя},{государство.ТекущийПравитель.Фамилия}," +
-                                    $"{государство.ТекущийПравитель.Отчество},{государство.ТекущийПравитель.Возраст}," +
-                                    $"{государство.ТекущийПравитель.НачалоПравления}");
+                            writer.WriteLine($"Государство,{государство.ID},{государство.Название},{государство.ГодСоздания}," +
+                            $"{государство.ТекущийПравитель.Имя},{государство.ТекущийПравитель.Фамилия}," +
+                            $"{государство.ТекущийПравитель.Отчество},{государство.ТекущийПравитель.Возраст}," +
+                            $"{государство.ТекущийПравитель.НачалоПравления}");
                             }
                             else
                             {
-                                writer.WriteLine($"{государство.ID},{государство.Название},{государство.ГодСоздания}");
+                            writer.WriteLine($"Государство,{государство.ID},{государство.Название},{государство.ГодСоздания}");
                             }
+                        }
+                        // Сохраняем области
+                        foreach (var область in области)
+                        {
+                            writer.WriteLine($"Область,{область.ID},{область.Название}");
+                        }
+
+                        // Сохраняем города
+                        foreach (var город in города)
+                        {
+                            writer.WriteLine($"Город,{город.ID},{город.Название}");
+                        }
+
+                        // Сохраняем районы
+                        foreach (var район in районы)
+                        {
+                            writer.WriteLine($"Район,{район.ID},{район.Название}");
                         }
                     }
 
@@ -331,43 +423,42 @@ namespace HopeForPravilnost
         //Выбираешь страну в listBox1, она сразу ищется. ДОПОЛНИТЕЛЬНО
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (textBox1.Text == "Государство")
+            richTextBox1.Clear();
+
+            if (listBox1.SelectedItem != null)
             {
-                richTextBox1.Clear();
+                // Получаем выбранное название из ListBox
+                string название = listBox1.GetItemText(listBox1.SelectedItem);
 
-                if (listBox1.SelectedItem != null)
+                // Поиск государства по названию
+                Государство найденноеГосударство = государства.Find(g => g.Название == название);
+
+                if (найденноеГосударство != null)
                 {
-                    // Получаем выбранное название из ListBox
-                    string название = listBox1.GetItemText(listBox1.SelectedItem);
+                    // Вывод информации о государстве
+                    richTextBox1.Text = $"Название: {найденноеГосударство.Название}, ID: {найденноеГосударство.ID}";
 
-                    // Поиск государства по названию
-                    Государство найденноеГосударство = государства.Find(g => g.Название == название);
-
-                    if (найденноеГосударство != null)
+                    if (найденноеГосударство.ГодСоздания != 0)
                     {
-                        // Вывод информации о государстве
-                        richTextBox1.Text = $"Название: {найденноеГосударство.Название}, ID: {найденноеГосударство.ID}";
+                        richTextBox1.Text += $", Год создания: {найденноеГосударство.ГодСоздания}";
+                        richTextBox1.Text += $", Возраст: {найденноеГосударство.ВычислитьВозраст()}";
+                    }
 
-                        if (найденноеГосударство.ГодСоздания != 0)
-                        {
-                            richTextBox1.Text += $", Год создания: {найденноеГосударство.ГодСоздания}";
-                            richTextBox1.Text += $", Возраст: {найденноеГосударство.ВычислитьВозраст()}";
-                        }
+                    richTextBox1.Text += найденноеГосударство.ПоказатьИнформациюОПравителе();
 
-                        richTextBox1.Text += найденноеГосударство.ПоказатьИнформациюОПравителе();
-
-                        if (!string.IsNullOrEmpty(найденноеГосударство.ПутьККартинке))
-                        {
-                            pictureBox1.ImageLocation = найденноеГосударство.ПутьККартинке;
-                        }
-                        else
-                        {
-                            pictureBox1.ImageLocation = null;
-                        }
+                    if (!string.IsNullOrEmpty(найденноеГосударство.ПутьККартинке))
+                    {
+                        pictureBox1.ImageLocation = найденноеГосударство.ПутьККартинке;
+                    }
+                    else
+                    {
+                        pictureBox1.ImageLocation = null;
                     }
                 }
             }
         }
+
+        // Изменить название государства - применение ref
         private void button8_Click(object sender, EventArgs e)
         {
             int id = (int)numericUpDown1.Value;
@@ -377,6 +468,64 @@ namespace HopeForPravilnost
                 ИзменитьНазвание(ref найденноеГосударство, textBox6.Text);
             }
             SetupListBox();
+        }
+
+        // ListBoxs //
+        private void listBox2_SelectedIndexChanged(object sender, EventArgs e) // listBox поиск Область
+        {
+            richTextBox1.Clear();
+
+            if (listBox2.SelectedItem != null)
+            {
+                // Получаем выбранное название из ListBox2
+                string название = listBox2.GetItemText(listBox2.SelectedItem);
+
+                // Поиск государства по названию
+                Область найденннаяОбласть = области.Find(g => g.Название == название);
+
+                if (найденннаяОбласть != null)
+                {
+                    // Вывод информации о государстве
+                    richTextBox1.Text = $"Название: {найденннаяОбласть.Название}, ID: {найденннаяОбласть.ID}";
+                }
+            }
+        }
+
+        private void listBox3_SelectedIndexChanged(object sender, EventArgs e) // listBox поиск Город
+        {
+            if (listBox3.SelectedItem != null)
+            {
+                // Получаем выбранное название из ListBox2
+                string название = listBox3.GetItemText(listBox3.SelectedItem);
+
+                // Поиск государства по названию
+                Город найденнныйГород = города.Find(g => g.Название == название);
+
+                if (найденнныйГород != null)
+                {
+                    // Вывод информации о государстве
+                    richTextBox1.Text = $"Название: {найденнныйГород.Название}, ID: {найденнныйГород.ID}";
+                }
+            }
+
+        }
+
+        private void listBox4_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (listBox4.SelectedItem != null)
+            {
+                // Получаем выбранное название из ListBox2
+                string название = listBox4.GetItemText(listBox4.SelectedItem);
+
+                // Поиск государства по названию
+                Район найденнныйРайон = районы.Find(g => g.Название == название);
+
+                if (найденнныйРайон != null)
+                {
+                    // Вывод информации о государстве
+                    richTextBox1.Text = $"Название: {найденнныйРайон.Название}, ID: {найденнныйРайон.ID}";
+                }
+            }
         }
     }
 }

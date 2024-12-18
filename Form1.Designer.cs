@@ -70,6 +70,9 @@
             label17 = new Label();
             comboBox1 = new ComboBox();
             label18 = new Label();
+            button9 = new Button();
+            button10 = new Button();
+            button11 = new Button();
             ((System.ComponentModel.ISupportInitialize)numericUpDown1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDown2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDown3).BeginInit();
@@ -450,12 +453,45 @@
             label18.TabIndex = 43;
             label18.Text = "Поиск:";
             // 
+            // button9
+            // 
+            button9.Location = new Point(1207, 847);
+            button9.Name = "button9";
+            button9.Size = new Size(282, 66);
+            button9.TabIndex = 44;
+            button9.Text = "Табличка района";
+            button9.UseVisualStyleBackColor = true;
+            button9.Click += button9_Click;
+            // 
+            // button10
+            // 
+            button10.Location = new Point(1207, 919);
+            button10.Name = "button10";
+            button10.Size = new Size(282, 91);
+            button10.TabIndex = 45;
+            button10.Text = "Очистить табличку района";
+            button10.UseVisualStyleBackColor = true;
+            button10.Click += button10_Click;
+            // 
+            // button11
+            // 
+            button11.Location = new Point(1567, 581);
+            button11.Name = "button11";
+            button11.Size = new Size(299, 46);
+            button11.TabIndex = 46;
+            button11.Text = "Устроить революцию";
+            button11.UseVisualStyleBackColor = true;
+            button11.Click += button11_Click;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(13F, 32F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
             ClientSize = new Size(1984, 1083);
+            Controls.Add(button11);
+            Controls.Add(button10);
+            Controls.Add(button9);
             Controls.Add(label18);
             Controls.Add(comboBox1);
             Controls.Add(label17);
@@ -552,5 +588,8 @@
         private Label label17;
         private ComboBox comboBox1;
         private Label label18;
+        private Button button9;
+        private Button button10;
+        private Button button11;
     }
 }

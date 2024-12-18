@@ -73,6 +73,9 @@
             button9 = new Button();
             button10 = new Button();
             button11 = new Button();
+            button12 = new Button();
+            button13 = new Button();
+            button14 = new Button();
             ((System.ComponentModel.ISupportInitialize)numericUpDown1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDown2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDown3).BeginInit();
@@ -477,11 +480,41 @@
             // 
             button11.Location = new Point(1567, 581);
             button11.Name = "button11";
-            button11.Size = new Size(299, 46);
+            button11.Size = new Size(282, 46);
             button11.TabIndex = 46;
             button11.Text = "Устроить революцию";
             button11.UseVisualStyleBackColor = true;
             button11.Click += button11_Click;
+            // 
+            // button12
+            // 
+            button12.Location = new Point(1567, 633);
+            button12.Name = "button12";
+            button12.Size = new Size(282, 74);
+            button12.TabIndex = 47;
+            button12.Text = "Проверить безопасность района";
+            button12.UseVisualStyleBackColor = true;
+            button12.Click += button12_Click;
+            // 
+            // button13
+            // 
+            button13.Location = new Point(1567, 713);
+            button13.Name = "button13";
+            button13.Size = new Size(282, 74);
+            button13.TabIndex = 48;
+            button13.Text = "Сделать район опасным";
+            button13.UseVisualStyleBackColor = true;
+            button13.Click += button13_Click;
+            // 
+            // button14
+            // 
+            button14.Location = new Point(1567, 793);
+            button14.Name = "button14";
+            button14.Size = new Size(282, 74);
+            button14.TabIndex = 49;
+            button14.Text = "Сделать район безопасным";
+            button14.UseVisualStyleBackColor = true;
+            button14.Click += button14_Click;
             // 
             // Form1
             // 
@@ -489,6 +522,9 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
             ClientSize = new Size(1984, 1083);
+            Controls.Add(button14);
+            Controls.Add(button13);
+            Controls.Add(button12);
             Controls.Add(button11);
             Controls.Add(button10);
             Controls.Add(button9);
@@ -591,5 +627,8 @@
         private Button button9;
         private Button button10;
         private Button button11;
+        private Button button12;
+        private Button button13;
+        private Button button14;
     }
 }

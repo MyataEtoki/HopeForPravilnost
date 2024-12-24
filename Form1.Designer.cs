@@ -76,16 +76,19 @@
             button12 = new Button();
             button13 = new Button();
             button14 = new Button();
+            label19 = new Label();
+            numericUpDown5 = new NumericUpDown();
             ((System.ComponentModel.ISupportInitialize)numericUpDown1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDown2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDown3).BeginInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDown4).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)numericUpDown5).BeginInit();
             SuspendLayout();
             // 
             // richTextBox1
             // 
-            richTextBox1.Location = new Point(944, 85);
+            richTextBox1.Location = new Point(990, 85);
             richTextBox1.Name = "richTextBox1";
             richTextBox1.ReadOnly = true;
             richTextBox1.Size = new Size(389, 425);
@@ -122,7 +125,7 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 204);
-            label2.Location = new Point(944, 50);
+            label2.Location = new Point(990, 50);
             label2.Name = "label2";
             label2.Size = new Size(294, 32);
             label2.TabIndex = 5;
@@ -171,7 +174,7 @@
             // 
             // button2
             // 
-            button2.Location = new Point(720, 224);
+            button2.Location = new Point(743, 269);
             button2.Name = "button2";
             button2.Size = new Size(132, 39);
             button2.TabIndex = 11;
@@ -276,7 +279,7 @@
             // label12
             // 
             label12.AutoSize = true;
-            label12.Location = new Point(461, 189);
+            label12.Location = new Point(441, 189);
             label12.Name = "label12";
             label12.Size = new Size(221, 32);
             label12.TabIndex = 25;
@@ -284,7 +287,7 @@
             // 
             // numericUpDown4
             // 
-            numericUpDown4.Location = new Point(461, 224);
+            numericUpDown4.Location = new Point(441, 224);
             numericUpDown4.Name = "numericUpDown4";
             numericUpDown4.Size = new Size(221, 39);
             numericUpDown4.TabIndex = 24;
@@ -516,12 +519,30 @@
             button14.UseVisualStyleBackColor = true;
             button14.Click += button14_Click;
             // 
+            // label19
+            // 
+            label19.AutoSize = true;
+            label19.Location = new Point(683, 189);
+            label19.Name = "label19";
+            label19.Size = new Size(281, 32);
+            label19.TabIndex = 51;
+            label19.Text = "ID суб., в кот. располож.";
+            // 
+            // numericUpDown5
+            // 
+            numericUpDown5.Location = new Point(704, 224);
+            numericUpDown5.Name = "numericUpDown5";
+            numericUpDown5.Size = new Size(221, 39);
+            numericUpDown5.TabIndex = 50;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(13F, 32F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
             ClientSize = new Size(1984, 1083);
+            Controls.Add(label19);
+            Controls.Add(numericUpDown5);
             Controls.Add(button14);
             Controls.Add(button13);
             Controls.Add(button12);
@@ -577,6 +598,7 @@
             ((System.ComponentModel.ISupportInitialize)numericUpDown3).EndInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDown4).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)numericUpDown5).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -630,5 +652,7 @@
         private Button button12;
         private Button button13;
         private Button button14;
+        private Label label19;
+        private NumericUpDown numericUpDown5;
     }
 }

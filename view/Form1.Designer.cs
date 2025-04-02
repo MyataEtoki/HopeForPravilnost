@@ -103,7 +103,7 @@
             button1.TabIndex = 2;
             button1.Text = "Найти";
             button1.UseVisualStyleBackColor = true;
-            button1.Click += button1_Click;
+            button1.Click += button_SearchId_Click;
             // 
             // numericUpDown1
             // 
@@ -180,7 +180,7 @@
             button2.TabIndex = 11;
             button2.Text = "Создать";
             button2.UseVisualStyleBackColor = true;
-            button2.Click += button2_Click;
+            button2.Click += button_Create_Click;
             // 
             // label6
             // 
@@ -274,7 +274,7 @@
             button3.TabIndex = 20;
             button3.Text = "Создать правителя";
             button3.UseVisualStyleBackColor = true;
-            button3.Click += button3_Click;
+            button3.Click += button_CreatePresident_Click;
             // 
             // label12
             // 
@@ -319,7 +319,7 @@
             button4.TabIndex = 28;
             button4.Text = "Загрузить данные";
             button4.UseVisualStyleBackColor = true;
-            button4.Click += button4_Click;
+            button4.Click += button_UploadDB_Click;
             // 
             // button5
             // 
@@ -329,7 +329,7 @@
             button5.TabIndex = 29;
             button5.Text = "Сохранить данные";
             button5.UseVisualStyleBackColor = true;
-            button5.Click += button5_Click;
+            button5.Click += button_DownloadDB_Click;
             // 
             // button6
             // 
@@ -357,7 +357,7 @@
             button7.TabIndex = 32;
             button7.Text = "Добавить картинку";
             button7.UseVisualStyleBackColor = true;
-            button7.Click += button7_Click;
+            button7.Click += button_AddPicture_Click;
             // 
             // textBox6
             // 
@@ -382,7 +382,7 @@
             button8.TabIndex = 35;
             button8.Text = "Изменить название на:";
             button8.UseVisualStyleBackColor = true;
-            button8.Click += button8_Click;
+            button8.Click += button_ChangeName_Click;
             // 
             // listBox2
             // 
@@ -467,7 +467,7 @@
             button9.TabIndex = 44;
             button9.Text = "Табличка района";
             button9.UseVisualStyleBackColor = true;
-            button9.Click += button9_Click;
+            button9.Click += button_StreetSign_Click;
             // 
             // button10
             // 
@@ -477,7 +477,7 @@
             button10.TabIndex = 45;
             button10.Text = "Очистить табличку района";
             button10.UseVisualStyleBackColor = true;
-            button10.Click += button10_Click;
+            button10.Click += button_ClearPicture_Click;
             // 
             // button11
             // 
@@ -487,7 +487,7 @@
             button11.TabIndex = 46;
             button11.Text = "Устроить революцию";
             button11.UseVisualStyleBackColor = true;
-            button11.Click += button11_Click;
+            button11.Click += button_SetRevolution_Click;
             // 
             // button12
             // 
@@ -497,7 +497,7 @@
             button12.TabIndex = 47;
             button12.Text = "Проверить безопасность района";
             button12.UseVisualStyleBackColor = true;
-            button12.Click += button12_Click;
+            button12.Click += button_CheckStreet_Click;
             // 
             // button13
             // 
@@ -507,7 +507,7 @@
             button13.TabIndex = 48;
             button13.Text = "Сделать район опасным";
             button13.UseVisualStyleBackColor = true;
-            button13.Click += button13_Click;
+            button13.Click += button_SetStreetDangerous_Click;
             // 
             // button14
             // 
@@ -517,7 +517,7 @@
             button14.TabIndex = 49;
             button14.Text = "Сделать район безопасным";
             button14.UseVisualStyleBackColor = true;
-            button14.Click += button14_Click;
+            button14.Click += button_SetStreetUndangerous_Click;
             // 
             // label19
             // 
@@ -593,6 +593,7 @@
             Controls.Add(richTextBox1);
             Name = "Form1";
             Text = "Обозреватель Государств";
+            Load += Form1_Load;
             ((System.ComponentModel.ISupportInitialize)numericUpDown1).EndInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDown2).EndInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDown3).EndInit();

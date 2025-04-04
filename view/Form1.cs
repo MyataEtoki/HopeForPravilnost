@@ -9,10 +9,6 @@ namespace HopeForPravilnost
     public partial class Form1 : Form, IFormView
     {
         private MainPresenter presenter;
-        //private List<Государство> государства = new List<Государство>();
-        //private List<Область> области = new List<Область>();
-        //private List<Город> города = new List<Город>();
-        //private List<Район> районы = new List<Район>();
 
         public Form1()
         {
@@ -29,8 +25,13 @@ namespace HopeForPravilnost
             comboBox1.Items.Add("Район");
             
             SetupListBox();
+            SetBackground();
 
-            //this.BackColor = Субъект.BackColor;
+            numericUpDown1.Maximum = 2500;
+        }
+
+        private void SetBackground()
+        {
             if (DateTime.Now.DayOfWeek == DayOfWeek.Thursday || DateTime.Now.DayOfWeek == DayOfWeek.Tuesday)
             {
                 this.BackColor = Color.MistyRose;
@@ -39,10 +40,7 @@ namespace HopeForPravilnost
             {
                 this.BackColor = Color.White;
             }
-
-            numericUpDown1.Maximum = 2500;
         }
-
         private void SetupListBox()
         {
             var государства = presenter.GetГосударства();
@@ -230,12 +228,6 @@ namespace HopeForPravilnost
             }
         }
 
-        // Государство по-строчно (каждая строчка - переменная)
-        private void button6_Click(object sender, EventArgs e)
-        {
-            //Form2 form2 = new Form2();
-            //form2.Show();
-        }
 
         // Добавление картинки
         private void button_AddPicture_Click(object sender, EventArgs e)
@@ -388,23 +380,6 @@ namespace HopeForPravilnost
             }
         }
 
-        // Табличка района в пикчюр бокс
-        private void button_StreetSign_Click(object sender, EventArgs e)
-        {
-            // Проверяем, выбран ли район в listBox4
-            if (listBox4.SelectedItem != null)
-            {
-                // Получаем выбранный район
-                string названиеРайона = listBox4.GetItemText(listBox4.SelectedItem);
-                Район выбранныйРайон = presenter.FindРайонName(названиеРайона);
-
-                if (выбранныйРайон != null)
-                {
-                    // Вызываем метод NameText и передаем pictureBox1 для отображения текста
-                    выбранныйРайон.NameText(pictureBox1);
-                }
-            }
-        }
         // Очистить пикчюр бокс от района
         private void button_ClearPicture_Click(object sender, EventArgs e)
         {

@@ -85,6 +85,7 @@ namespace HopeForPravilnost.presenter
         {
             db.ClearDB();
         }
+
         // обращаемся к государству напрямую - через ref.
         public void ИзменитьНазваниеГосударства(ref Государство государство, string новоеНазвание)
         {
@@ -92,7 +93,17 @@ namespace HopeForPravilnost.presenter
         }
         public void ЗагрузитьДанныеButton(string filePath)
         {
-            db.ЗагрузитьДанныеButton(filePath);
+            // Очищаем коллекцию перед загрузкой
+            ClearDB();
+            // Загружаем данные из файла
+            if (db.ЗагрузитьДанные(filePath, out int колЗаписей))
+            {
+                MessageBox.Show($"Успешно загружено {колЗаписей} записей.");
+            }
+            else
+            {
+                MessageBox.Show("Не удалось загрузить данные из файла.");
+            }
         }
         public void СохранитьДанныеButton(string filePath)
         {

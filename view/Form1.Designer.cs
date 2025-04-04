@@ -56,7 +56,6 @@
             label13 = new Label();
             button4 = new Button();
             button5 = new Button();
-            button6 = new Button();
             pictureBox1 = new PictureBox();
             button7 = new Button();
             textBox6 = new TextBox();
@@ -70,8 +69,6 @@
             label17 = new Label();
             comboBox1 = new ComboBox();
             label18 = new Label();
-            button9 = new Button();
-            button10 = new Button();
             button11 = new Button();
             button12 = new Button();
             button13 = new Button();
@@ -331,16 +328,6 @@
             button5.UseVisualStyleBackColor = true;
             button5.Click += button_DownloadDB_Click;
             // 
-            // button6
-            // 
-            button6.Location = new Point(35, 847);
-            button6.Name = "button6";
-            button6.Size = new Size(284, 59);
-            button6.TabIndex = 30;
-            button6.Text = "Я любитель строчек";
-            button6.UseVisualStyleBackColor = true;
-            button6.Click += button6_Click;
-            // 
             // pictureBox1
             // 
             pictureBox1.Location = new Point(1529, 85);
@@ -459,26 +446,6 @@
             label18.TabIndex = 43;
             label18.Text = "Поиск:";
             // 
-            // button9
-            // 
-            button9.Location = new Point(1207, 847);
-            button9.Name = "button9";
-            button9.Size = new Size(282, 66);
-            button9.TabIndex = 44;
-            button9.Text = "Табличка района";
-            button9.UseVisualStyleBackColor = true;
-            button9.Click += button_StreetSign_Click;
-            // 
-            // button10
-            // 
-            button10.Location = new Point(1207, 919);
-            button10.Name = "button10";
-            button10.Size = new Size(282, 91);
-            button10.TabIndex = 45;
-            button10.Text = "Очистить табличку района";
-            button10.UseVisualStyleBackColor = true;
-            button10.Click += button_ClearPicture_Click;
-            // 
             // button11
             // 
             button11.Location = new Point(1567, 581);
@@ -547,8 +514,6 @@
             Controls.Add(button13);
             Controls.Add(button12);
             Controls.Add(button11);
-            Controls.Add(button10);
-            Controls.Add(button9);
             Controls.Add(label18);
             Controls.Add(comboBox1);
             Controls.Add(label17);
@@ -562,7 +527,6 @@
             Controls.Add(textBox6);
             Controls.Add(button7);
             Controls.Add(pictureBox1);
-            Controls.Add(button6);
             Controls.Add(button5);
             Controls.Add(button4);
             Controls.Add(label13);
@@ -633,7 +597,6 @@
         private Label label13;
         private Button button4;
         private Button button5;
-        private Button button6;
         private PictureBox pictureBox1;
         private Button button7;
         private TextBox textBox6;
@@ -647,8 +610,6 @@
         private Label label17;
         private ComboBox comboBox1;
         private Label label18;
-        private Button button9;
-        private Button button10;
         private Button button11;
         private Button button12;
         private Button button13;

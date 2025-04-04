@@ -9,9 +9,13 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Reference Include="StavteClassy">
-      <HintPath>..\ОП - Библиотека классов\bin\Debug\net8.0\StavteClassy.dll</HintPath>
-    </Reference>
+    <Compile Remove="model\WorkWithFiles.cs" />
+    <Compile Remove="view\Form2.cs" />
+    <Compile Remove="view\Form2.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Remove="view\Form2.resx" />
   </ItemGroup>
 
   <ItemGroup>
